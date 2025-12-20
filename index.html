@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请启用 IPv6 访问服务</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", Arial, sans-serif; }
+        body { background-color: #f5f7fa; padding: 2rem 1rem; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 800px; width: 100%; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 2.5rem; }
+        /* 新增标题栏样式 */
+        .custom-header { background-color: #4299e1; color: #fff; padding: 1rem 0; border-radius: 8px; text-align: center; margin-bottom: 2rem; }
+        .custom-header h2 { font-size: 1.5rem; font-weight: 600; }
+        /* 原有样式保持不变 */
+        .icon { font-size: 4rem; color: #4299e1; margin-bottom: 1.5rem; text-align: center; }
+        h1 { color: #2d3748; font-size: 1.8rem; margin-bottom: 1rem; text-align: center; }
+        .desc { color: #4a5568; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; text-align: center; }
+        .btn-group { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .btn { padding: 0.8rem 1.8rem; border-radius: 8px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+        .btn-test { background-color: #4299e1; color: #fff; }
+        .btn-test:hover { background-color: #3182ce; transform: translateY(-2px); }
+        .btn-back { background-color: #f5f5f5; color: #4a5568; }
+        .btn-back:hover { background-color: #e5e5e5; transform: translateY(-2px); }
+        .guide-title { color: #2d3748; font-size: 1.3rem; margin-bottom: 1.2rem; font-weight: 600; border-left: 4px solid #4299e1; padding-left: 0.8rem; }
+        。device-card { background-color: #fafafa; border-radius: 8px; padding: 1.2rem; margin-bottom: 1rem; }
+        。device-name { color: #2d3748; font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 600; }
+        。steps { color: #4a5568; font-size: 0.95rem; line-height: 1.5; list-style-position: inside; }
+        。steps li { margin-bottom: 0.4rem; }
+        。note { color: #ed8936; font-size: 0.9rem; margin-top: 0.8rem; padding: 0.6rem; background-color: #fffaf0; border-radius: 4px; }
+        footer { margin-top: auto; padding: 1.5rem 0; color: #718096; font-size: 0.85rem; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 新增自定义标题栏：修改下面的文本即可自定义 -->
+        <div class="custom-header">
+            <h2>【请替换为你的自定义标题】</h2>
+        </div>
+
+        <div class="icon">🔌</div>
+        <h1>当前设备未启用 IPv6 网络</h1>
+        <p class="desc">本服务仅支持 IPv6 访问，请先启用 IPv6 或通过下方按钮检测网络状态，按指南配置后重试～</p>
+        
+        <div class="btn-group">
+            <a href="https://test-ipv6.com" target="_blank" rel="noopener noreferrer">
+                <button class="btn btn-test">检测 IPv6 状态</button>
+            </a>
+            <button class="btn btn-back" onclick="history.back()">返回上一页</button>
+        </div>
+
+        <div class="guide-title">简单 IPv6 启用方法</div>
+        
+        <!-- 电脑端指南 -->
+        <div class="device-card">
+            <div class="device-name">🖥️ 电脑（Windows 10/11）</div>
+            <ul class="steps">
+                <li>1. 右键点击桌面「网络」图标 → 选择「网络和 Internet 设置」</li>
+                <li>2. 找到当前连接的网络（Wi-Fi/以太网）→ 点击进入「属性」</li>
+                <li>3. 勾选「Internet 协议版本 6 (TCP/IPv6)」→ 点击「确定」</li>
+                <li>4. 重启网络连接（断开重连 Wi-Fi/网线）即可生效</li>
+            </ul>
+        </div>
+
+        <div class="device-card">
+            <div class="device-name">💻 电脑（macOS）</div>
+            <ul class="steps">
+                <li>1. 打开「系统设置」→ 点击「网络」</li>
+                <li>2. 选择当前连接的网络 → 点击「高级」→ 切换到「TCP/IP」标签</li>
+                <li>3. IPv6 配置选择「自动」→ 点击「好」保存</li>
+                <li>4. 断开重连网络即可启用</li>
+            </ul>
+        </div>
+
+        <!-- 手机端指南 -->
+        <div class="device-card">
+            <div class="device-name">📱 手机（iOS）</div>
+            <ul class="steps">
+                <li>1. 打开「设置」→ 「无线局域网」→ 点击当前 Wi-Fi 后的「i」</li>
+                <li>2. 找到「IPv6」→ 选择「自动」</li>
+                <li>3. 关闭 Wi-Fi 重新连接，即可启用</li>
+            </ul>
+        </div>
+
+        <div class="device-card">
+            <div class="device-name">📱 手机（Android）</div>
+            <ul class="steps">
+                <li>1. 打开「设置」→ 「WLAN」→ 长按当前连接的 Wi-Fi → 选择「修改网络」</li>
+                <li>2. 勾选「显示高级选项」→ IPv6 协议选择「自动获取」</li>
+                <li>3. 点击「保存」，重启 Wi-Fi 即可生效（不同品牌路径略有差异，找不到可搜索手机型号+IPv6 启用）</li>
+            </ul>
+        </div>
+
+        <!-- 路由器/光猫指南 -->
+        <div class="device-card">
+            <div class="device-name">📡 路由器（常见品牌通用步骤）</div>
+            <ul class="steps">
+                <li>1. 电脑/手机连接路由器 Wi-Fi，打开浏览器输入路由器管理地址（常见：192.168.1.1、192.168.0.1，路由器底部标签可查）</li>
+                <li>2. 输入管理员账号密码（默认 admin/admin，未修改过可查说明书或路由器底部）</li>
+                <li>3. 找到「网络设置」→ 「IPv6 设置」（部分品牌在「高级设置」或「上网设置」中）</li>
+                <li>4. 选择 IPv6 模式为「自动获取（SLAAC/DHCPv6）」或「原生 IPv6」，启用后点击「保存」</li>
+                <li>5. 重启路由器，等待 1-2 分钟即可生效</li>
+            </ul>
+            <div class="note">⚠️ 不同品牌路径参考：华为（上网设置→IPv6）、小米（网络设置→IPv6）、TP-Link（高级设置→IPv6）、华硕（WAN→IPv6）</div>
+        </div>
+
+        <div class="device-card">
+            <div class="device-name">🔌 光猫（需配合路由器使用）</div>
+            <ul class="steps">
+                <li>1. 光猫一般由运营商配置，默认可能关闭 IPv6，先确认路由器已开启 IPv6 仍无法使用时再操作</li>
+                <li>2. 访问光猫管理地址（常见：192.168.1.100，底部标签可查），输入运营商提供的账号密码（非路由器密码）</li>
+                <li>3. 找到「IPv6 配置」→ 选择「桥接模式」或「启用 IPv6 转发」（不同运营商光猫设置差异大）</li>
+                <li>4. 若不会操作，直接联系宽带运营商（电信/联通/移动），要求「开启 IPv6 服务」，运营商可远程配置</li>
+            </ul>
+            <div class="note">💡 关键提示：光猫需设置为「桥接模式」，路由器设置为「PPPoE 拨号」并开启 IPv6，或光猫为「路由模式」且已启用 IPv6，路由器自动获取即可</div>
+        </div>
+    </div>
+
+    <footer>
+        提示：若已启用 IPv6 仍无法访问，请检查路由器是否支持 IPv6 并已开启 | 检测网站：test-ipv6.com | 光猫配置可联系宽带运营商协助
+    </footer>
+</body>
+</html>
